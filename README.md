@@ -93,7 +93,7 @@ Contributing are welcome! Please feel free to submit a Pull Request
 ### Common issue
 
 1. Module not showing in Cockpit
-   - Check that the module file are in `/usr/share/cockpit/adguard/` ore `/home/<username>/adguard/`
+   - Check that the module file are in `/usr/share/cockpit/adguard/` or `/home/<username>/adguard/`
    - Verify file permissions
    - Restart Cockpit service
 2. Connection errors
@@ -104,7 +104,7 @@ Contributing are welcome! Please feel free to submit a Pull Request
 
 ## Support
 
-If you encounter anu problems or have question:
+If you encounter any problems or have question:
 
 1. Check the issues page for existing solutions
 2. Creare a new issue whith detailed information about your problem
