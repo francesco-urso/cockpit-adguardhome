@@ -108,10 +108,10 @@
     transform: rotate(360deg);
   }
 }
-.row {
+/* .row {
   margin-right: -15px;
   margin-left: -15px;
-}
+} */
 .col-md-3,
 .col-md-6 {
   position: relative;
@@ -211,7 +211,6 @@ tbody tr td {
 }
 .stats-vertical {
   display: flex;
-  flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
 }
