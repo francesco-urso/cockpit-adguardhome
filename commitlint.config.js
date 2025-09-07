@@ -24,7 +24,7 @@ module.exports = {
                     const isValid = regex.test(header);
 
                     if (!isValid) {
-                        return [false, `Il commit message deve seguire il formato: "username - type: description"\Example: "mario-rossi - feature: add login button"`];
+                        return [false, `The commit message must follow the format: "username - type: description"\Example: "mario-rossi - feature: add login button"`];
                     }
 
                     const currentBranch = require('child_process')
