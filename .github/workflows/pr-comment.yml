@@ -1,0 +1,34 @@
+name: PR Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if PR targets main
+        if: github.base_ref == 'refs/heads/main'
+        run: |
+          if [ "${{ github.head_ref }}" == "main" ]; then
+            echo "You can't do PR on main from main itself"
+            exit 1
+          fi
+
+  comment:
+    needs: validate-branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add commit message as comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const commitMsg = context.payload.pull_request.title;
+            const user = context.payload.pull_request.user.login;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Commit -> **${user}**:\n\n> ${commitMsg}`
+            });

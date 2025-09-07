@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/h"
+
+current_branch=$(git symbolic-ref --short HEAD)
+
+if [ "$current_branch" = "main" ]; then
+  echo "You can't push directly to main. Use a PR."
+  exit 1
+fi
